@@ -1,17 +1,32 @@
 <!DOCTYPE html>
-<html lang="en" >
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>corazon animado encoded</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1"><link rel="stylesheet" href="./style.css">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="./style.css">
+  <style>
+    /* Agregamos un estilo para el mensaje */
+    .mensaje {
+      display: none;
+      position: fixed;
+      top: 80%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: rgba(255, 255, 255, 0.8);
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    }
+  </style>
 </head>
 <body>
 
-<svg height="320" width="320" class="like" onclick="document.body.classList.toggle('liked')">
+<svg height="320" width="320" class="like" onclick="toggleLike()">
   <path class="path" d="M 160 145 c 15 -90 170 -20 0 90 m 0 -90 c -15 -90 -170 -20 0 90" fill="white"/> <!-- 80 by 70 -->
 </svg>
 
+<div class="mensaje" id="mensaje">¡Mi hadita preciosa ❤️!</div>
 
 <div class="dot dot-1"></div>
 <div class="dot dot-2"></div>
@@ -34,8 +49,18 @@
 
 <svg height="110" width="110" viewBox="0 0 320 320" class="fly fly-1"><path class="path" d="M 160 145 c 15 -90 170 -20 0 90 m 0 -90 c -15 -90 -170 -20 0 90"/></svg>
 <svg height="110" width="110" viewBox="0 0 320 320" class="fly fly-2"><path class="path" d="M 160 145 c 15 -90 170 -20 0 90 m 0 -90 c -15 -90 -170 -20 0 90"/></svg>
-<!-- partial -->
-  <script  src="./script.js"></script>
 
+<script>
+  // Función para mostrar u ocultar el mensaje
+  function toggleLike() {
+    document.body.classList.toggle('liked');
+    document.getElementById('mensaje').style.display = 'block';
+    setTimeout(function(){
+      document.getElementById('mensaje').style.display = 'none';
+    }, 1500); // Oculta el mensaje después de 1 segundo y medio
+  }
+</script>
+
+<script src="./script.js"></script>
 </body>
 </html>
